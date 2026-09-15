@@ -1,0 +1,829 @@
+/* FONTS */
+
+/* NECO */
+
+@font-face {
+    font-family: "Neco";
+    src: url("./fonts/Neco-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Neco";
+    src: url("./fonts/Neco-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Neco";
+    src: url("./fonts/Neco-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Neco";
+    src: url("./fonts/Neco-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* GENERAL SANS */
+
+@font-face {
+    font-family: "General Sans";
+    src: url("./fonts/GeneralSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "General Sans";
+    src: url("./fonts/GeneralSans-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --cream: #f8f7e6;
+    --dark-green: #0d3222;
+    --text-dark: #1a2e22;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#smooth-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+/* SHARED */
+
+/* Center-out underline hover for every link */
+a {
+    position: relative;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s ease;
+    pointer-events: none;
+}
+
+a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Mask lines used by SplitText for the paragraph reveal animation */
+.split-line-mask {
+    overflow: hidden;
+}
+
+/* Keep SplitText word groups intact so headings wrap between words, not mid-word */
+.split-word {
+    white-space: nowrap;
+}
+
+.section-label {
+    font-weight: 500;
+    letter-spacing: 5%;
+    font-family: "General Sans";
+    color: var(--text-dark);
+}
+
+.wrapper {
+    width: min(90%, 1440px);
+    margin-inline: auto;
+}
+
+.site-nav__logo {
+    font-family: "General Sans";
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.site-nav__link {
+    font-family: "Neco";
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.button {
+    width: 219px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 8px;
+    background: var(--dark-green);
+    color: var(--cream);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Neco";
+    font-weight: 500;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3.25rem 0;
+    background-color: var(--cream);
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+
+    background-color: var(--cream);
+    box-shadow: 0 0 0 100vmax var(--cream);
+    clip-path: inset(0 -100vmax);
+
+    transition: transform 0.4s ease;
+}
+
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 440px;
+    height: 100vh;
+    overflow-y: auto;
+
+    background-color: var(--dark-green);
+
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+
+    z-index: 1000;
+
+    &.open {
+        transform: translateX(0);
+    }
+
+    .side-menu-content {
+        padding: 80px 40px 40px;
+    }
+
+    .side-menu__title {
+        font-family: "Neco";
+        font-weight: 900;
+        font-size: 2.25rem;
+        text-transform: uppercase;
+        color: var(--cream);
+    }
+
+    .side-menu__subtitle {
+        font-family: "General Sans";
+        font-weight: 400;
+        font-size: 1.125rem;
+        color: var(--cream);
+        margin-top: 0.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(248, 247, 230, 0.25);
+    }
+
+    .close-menu {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+
+        background: none;
+        border: none;
+        color: var(--cream);
+
+        font-size: 32px;
+        cursor: pointer;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .form-group__label {
+        font-family: "Neco";
+        font-weight: 500;
+        letter-spacing: 5%;
+        text-transform: uppercase;
+        color: var(--cream);
+    }
+
+    .date-field {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        padding: 14px 16px;
+        border: 1px solid rgba(248, 247, 230, 0.4);
+
+        svg {
+            flex-shrink: 0;
+        }
+
+        input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--cream);
+            font-family: "General Sans";
+            font-size: 1rem;
+
+            &::-webkit-calendar-picker-indicator {
+                filter: invert(1);
+                cursor: pointer;
+            }
+        }
+    }
+
+    .ticket-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+
+        .ticket-row__info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .ticket-row__type {
+            font-family: "Neco";
+            font-weight: 500;
+            font-size: 1.125rem;
+            color: var(--cream);
+        }
+
+        .ticket-row__age {
+            font-family: "General Sans";
+            font-size: 0.875rem;
+            color: rgba(248, 247, 230, 0.6);
+        }
+
+        .ticket-row__control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ticket-row__price {
+            font-family: "General Sans";
+            color: var(--cream);
+            margin-right: 4px;
+        }
+
+        .qty-btn {
+            width: 28px;
+            height: 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: none;
+            border: 1px solid rgba(248, 247, 230, 0.4);
+            color: var(--cream);
+
+            font-size: 1rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .qty-value {
+            font-family: "General Sans";
+            color: var(--cream);
+            min-width: 1ch;
+            text-align: center;
+        }
+    }
+
+    .side-menu__total {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(248, 247, 230, 0.25);
+    }
+
+    .side-menu__total-label,
+    .side-menu__total-value {
+        font-family: "Neco";
+        font-weight: 500;
+        letter-spacing: 5%;
+        text-transform: uppercase;
+        color: var(--cream);
+    }
+
+    .side-menu__total-value {
+        font-family: "General Sans";
+        text-transform: none;
+        font-size: 1.25rem;
+    }
+
+    .continue-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        padding: 16px;
+
+        border: 1px solid var(--cream);
+        background: transparent;
+        color: var(--cream);
+
+        text-transform: uppercase;
+        font-family: "Neco";
+        font-weight: 500;
+        letter-spacing: 5%;
+
+        cursor: pointer;
+    }
+}
+/* HERO */
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: var(--cream);
+    box-shadow: 0 0 0 100vmax var(--cream);
+    clip-path: inset(0 -100vmax);
+
+    .hero__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: relative;
+        z-index: 1;
+
+        .hero__main {
+            .hero__heading {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hero__title {
+                font-size: 6rem;
+                font-family: "Neco";
+                font-weight: 700;
+                text-transform: uppercase;
+                line-height: 100%;
+                color: var(--text-dark);
+            }
+
+            .hero__title:nth-child(2) {
+                position: relative;
+                left: 10%;
+            }
+        }
+
+        .hero__button {
+            margin-top: 2rem;
+        }
+    }
+
+    .hero__description {
+        position: absolute;
+        bottom: 0;
+
+        p {
+            font-family: "General Sans";
+            font-weight: 400;
+            width: 350px;
+        }
+    }
+
+    .hero__image-wrapper {
+        flex: 1;
+
+        .hero__image {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            display: block;
+        }
+    }
+}
+
+/* SCIENCE OF COLOUR */
+
+.colour-science {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    margin-top: 7.5rem;
+    position: relative;
+    background-color: var(--cream);
+    box-shadow: 0 0 0 100vmax var(--cream);
+    clip-path: inset(0 -100vmax);
+
+    .colour-science__main {
+        display: flex;
+        gap: 8.25rem;
+        margin-top: 4.625rem;
+
+        .colour-science__hero-image {
+            flex: none;
+            width: 548px;
+
+            img {
+                width: 100%;
+                aspect-ratio: 3 / 4;
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        .colour-science__content {
+            position: relative;
+            flex: 1;
+
+            .colour-science__title {
+                font-size: 2rem;
+                font-family: "Neco";
+                font-weight: 900;
+                line-height: 110%;
+                margin-bottom: 1.5rem;
+            }
+
+            .colour-science__description {
+                font-family: "General Sans";
+                color: var(--text-dark);
+                font-size: 1.5rem;
+                width: 100%;
+    max-width: 620px;
+            }
+
+            .colour-science__secondary-image {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 45%;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+/* EXHIBITION ACTIVITIES */
+
+.exhibition {
+    background-color: var(--dark-green);
+    box-shadow: 0 0 0 100vmax var(--dark-green);
+    clip-path: inset(0 -100vmax);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 100vh;
+    position: relative;
+    z-index: 0;
+
+    margin-top: 7.5rem;
+
+    .exhibition__content {
+        display: flex;
+        flex-direction: column;
+        padding-block: 120px;
+
+        .exhibition__intro {
+            margin-bottom: 2.75rem;
+
+            .section-label {
+                color: var(--cream);
+                margin-bottom: 2.75rem;
+            }
+
+            .exhibition__title,
+            .exhibition__description {
+                color: var(--cream);
+            }
+
+            .exhibition__description {
+                font-family: "General Sans";
+    font-size: 1.5rem;
+    font-weight: 200;
+    line-height: 1.4;
+
+    width: 100%;
+    max-width: 620px;
+            }
+
+            .exhibition__title {
+                font-size: 2rem;
+                font-family: "Neco";
+                font-weight: 900;
+                line-height: 110%;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .exhibition__activities {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+
+            .activity-card {
+                display: flex;
+                flex-direction: column;
+
+                .activity-card__title {
+                    color: var(--cream);
+                    font-family: "Neco";
+                    font-weight: 300;
+                    margin-top: 2rem;
+                    margin-bottom: 0.75rem;
+                }
+
+                .activity-card__description {
+                    font-family: "General Sans";
+                    font-weight: 200;
+                    font-size: 0.875rem;
+                    color: var(--cream);
+                }
+
+                .activity-card__image {
+                    width: 100%;
+                    aspect-ratio: 3 / 4;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+
+/* DAVID ATTENBOROUGH */
+
+.special-event {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    margin-top: 7.5rem;
+    position: relative;
+    background-color: var(--cream);
+    box-shadow: 0 0 0 100vmax var(--cream);
+    clip-path: inset(0 -100vmax);
+
+    .special-event-info {
+        display: flex;
+        flex: 1;
+        align-items: center;
+
+        .special-event__title {
+            font-size: 2rem;
+            font-family: "Neco";
+            font-weight: 900;
+            line-height: 110%;
+            color: var(--text-dark);
+            text-transform: uppercase;
+        }
+
+        .special-event__name {
+            width: 50%;
+            font-size: 3.5rem;
+            font-family: "Neco";
+            font-weight: 900;
+            line-height: 110%;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            text-transform: uppercase;
+        }
+
+        .special-event__content p {
+            font-family: "General Sans";
+            font-weight: 400;
+            font-size: 1.5rem;
+            width: 50%;
+        }
+
+        .event-details {
+            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            ;
+        }
+
+        .special-event__details {
+            gap: 1rem;
+        }
+
+        .special-event__detail {
+            font-family: "Neco";
+            font-weight: 800;
+        }
+
+        .special-event__detail-text {
+            font-family: "General Sans";
+            font-weight: 400;
+            font-size: 1.5rem;
+        }
+
+    }
+}
+
+/* FOOTER */
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-dark);
+    padding: 3.25rem 0;
+    position: relative;
+    z-index: 999;
+    background-color: var(--cream);
+
+      .up_button {
+        padding: 0.7rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid var(--dark-green);
+         svg{
+            width: 1.5rem;
+            height: 1.5rem;
+         }
+      }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+    .site-header{
+        display: none;
+    }
+
+    .colour-science,
+    .exhibition,
+    .special-event {
+        margin-top: 3.75rem;
+    }
+
+    .colour-science__title,
+    .exhibition__title,
+    .special-event__title,
+    .special-event__name {
+        margin-bottom: 12px;
+    }
+
+    .exhibition__intro {
+        margin-bottom: 12px;
+
+        .section-label {
+            margin-bottom: 12px;
+        }
+    }
+
+    .exhibition__activities .activity-card .activity-card__title {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    .hero {
+        flex-direction: column;
+        gap: 2.5rem;
+
+        .hero__content .hero__main .hero__title {
+            font-size: 4rem;
+        }
+
+        .hero__content .hero__main .hero__heading {
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .hero__content .hero__main {
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero__description {
+            position: static;
+            text-align: center;
+
+            p {
+                width: 100%;
+                margin-top: 12px;
+            }
+        }
+    }
+
+    .special-event .special-event-info .special-event__content p {
+        width: 100%;
+    }
+
+    .colour-science .colour-science__main {
+        flex-direction: column;
+        gap: 3rem;
+        
+      
+        .colour-science__content .colour-science__description {
+            width: 100%;
+        }
+
+        .colour-science__content .colour-science__secondary-image {
+            position: static;
+            width: 60%;
+            margin-top: 2rem;
+        }
+    }
+
+    .exhibition {
+        min-height: 0;
+
+        .exhibition__content {
+            padding-block: 3rem;
+
+            .exhibition__intro .exhibition__description {
+                width: 100%;
+            }
+
+            .exhibition__activities {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+
+    .special-event {
+        height: auto;
+        padding-block: 3rem;
+
+        .special-event-info {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2rem;
+
+            .special-event__name {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 0;
+    }
+
+    .hero .hero__content .hero__main .hero__title {
+        font-size: 2.75rem;
+    }
+
+    .exhibition .exhibition__content .exhibition__activities {
+        grid-template-columns: 1fr;
+    }
+
+    .special-event .special-event-info .special-event__name {
+        font-size: 2.25rem;
+    }
+}

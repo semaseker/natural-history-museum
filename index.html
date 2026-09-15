@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Hystory Museum</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+</head>
+
+<body id="top">
+    <header class="site-header wrapper">
+        <div class="logo">
+            <a href="#" class="site-nav__logo">
+                Natural History Museum
+            </a>
+        </div>
+        <nav class="site-nav">
+            <ul class="site-nav__list">
+                <li class="site-nav__item">
+                    <a href="#" class="site-nav__link menu-trigger">
+                        Book Tickets
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- BOOK TICKET -->
+    <aside class="side-menu" id="sideMenu">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            &times;
+        </button>
+        <div class="side-menu-content">
+            <h2 class="side-menu__title">Book Tickets</h2>
+            <p class="side-menu__subtitle">
+                Choose your visit
+            </p>
+            <form>
+                <div class="form-group">
+                    <label for="date" class="form-group__label">Date</label>
+                    <div class="date-field">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <rect x="2.5" y="4.5" width="15" height="13" rx="1.5" stroke="#F8F7E6"
+                                stroke-width="1.3" />
+                            <path d="M2.5 8H17.5" stroke="#F8F7E6" stroke-width="1.3" />
+                            <path d="M6.5 2.5V5.5M13.5 2.5V5.5" stroke="#F8F7E6" stroke-width="1.3"
+                                stroke-linecap="round" />
+                        </svg>
+                        <input type="date" id="date" placeholder="Select a date">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="form-group__label">Tickets</span>
+
+                    <div class="ticket-row">
+                        <div class="ticket-row__info">
+                            <span class="ticket-row__type">Adult</span>
+                            <span class="ticket-row__age">Ages 16+</span>
+                        </div>
+                        <div class="ticket-row__control">
+                            <span class="ticket-row__price">€XX</span>
+                            <button type="button" class="qty-btn qty-btn--minus" aria-label="Decrease adult tickets">
+                                &minus;
+                            </button>
+                            <span class="qty-value">1</span>
+                            <button type="button" class="qty-btn qty-btn--plus" aria-label="Increase adult tickets">
+                                +
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="ticket-row">
+                        <div class="ticket-row__info">
+                            <span class="ticket-row__type">Child</span>
+                            <span class="ticket-row__age">Ages 3-15</span>
+                        </div>
+                        <div class="ticket-row__control">
+                            <span class="ticket-row__price">€XX</span>
+                            <button type="button" class="qty-btn qty-btn--minus" aria-label="Decrease child tickets">
+                                &minus;
+                            </button>
+                            <span class="qty-value">1</span>
+                            <button type="button" class="qty-btn qty-btn--plus" aria-label="Increase child tickets">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="side-menu__total">
+                    <span class="side-menu__total-label">Total</span>
+                    <span class="side-menu__total-value">€XX</span>
+                </div>
+
+                <button type="submit" class="continue-btn">
+                    Continue to Book
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M12 4L4 12M5.33333 4H12V10.6667" stroke="#F8F7E6" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </aside>
+
+    <div id="smooth-wrapper">
+    <div id="smooth-content">
+    <div class="exhibition-page">
+        <main>
+            <!-- HERO -->
+            <section class="hero wrapper">
+                <div class="hero__content">
+                    <div class="hero__main">
+                        <div class="hero__heading">
+                            <span class="hero__title">Discover</span>
+                            <span class="hero__title">Colourful</span>
+                            <span class="hero__title">Creatures</span>
+                        </div>
+                        <a href="#" class="button hero__button menu-trigger"> Book Tickets
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M12 4L4 12M5.33333 4H12V10.6667" stroke="#FEFFEB" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="hero__description">
+                        <p>
+                            Discover the science behind colour in the natural world through
+                            interactive games, virtual reality and group activities
+                        </p>
+                    </div>
+                </div>
+                <div class="hero__image-wrapper">
+                    <img src="source/hero.png" alt="Colourful bird" class="hero__image">
+                </div>
+            </section>
+
+            <!-- SCIENCE OF COLOUR -->
+            <section class="colour-science wrapper">
+
+                <div class="colour-science__label">
+                    <p class="section-label">
+                        THE SCIENCE OF COLOUR
+                    </p>
+                </div>
+
+                <div class="colour-science__main">
+                    <div class="colour-science__hero-image">
+                        <img src="source/jellyfish.png" alt="Colourful jellyfish">
+                    </div>
+                    <div class="colour-science__content">
+
+                        <div class="colour-science__text">
+                            <h2 class="colour-science__title">
+                                WHY ARE SOME CREATURES SO WONDERFULLY COLOURFUL?
+                            </h2>
+                            <p class="colour-science__description">
+                                Explore the science behind colour through interactive
+                                games, virtual reality and group activities. Discover
+                                how the natural world uses colour in fascinating ways,
+                                while learning through hands-on experiences designed
+                                to spark curiosity and encourage discovery.
+                            </p>
+                        </div>
+                        <div class="colour-science__secondary-image">
+                            <img src="source/iguana.png" alt="Colourful iguana">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!-- EXHIBITION ACTIVITIES -->
+            <section class="exhibition wrapper">
+                <div class="exhibition__content">
+                    <div class="exhibition__intro">
+                        <div class="exhibition__label">
+                            <p class="section-label">
+                                EXPLORE THE EXHIBITION
+                            </p>
+                        </div>
+                        <div class="exhibition__text">
+                            <h2 class="exhibition__title">
+                                SEE COLOUR IN A DIFFERENT WAY.
+                            </h2>
+
+                            <p class="exhibition__description">
+                                Discover the science behind colour through interactive
+                                experiences for curious young visitors.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="exhibition__activities">
+                        <article class="activity-card">
+                            <img src="source/activity-1.png" alt="Interactive colour game" class="activity-card__image">
+
+                            <h3 class="activity-card__title">
+                                01 — GAMES
+                            </h3>
+
+                            <p class="activity-card__description">
+                                Discover the science behind colour through interactive
+                                games designed to make learning fun and engaging.
+                            </p>
+                        </article>
+
+                        <article class="activity-card">
+                            <img src="source/activity-2.png" alt="Interactive colour activity"
+                                class="activity-card__image">
+
+                            <h3 class="activity-card__title">
+                                02 — VIRTUAL REALITY
+                            </h3>
+
+                            <p class="activity-card__description">
+                                Step into an interactive world and explore the
+                                fascinating science of colour through virtual reality.
+                            </p>
+                        </article>
+
+                        <article class="activity-card">
+                            <img src="source/activity-3.png" alt="Hands-on colour activity"
+                                class="activity-card__image">
+
+                            <h3 class="activity-card__title">
+                                03 — GROUP ACTIVITIES
+                            </h3>
+
+                            <p class="activity-card__description">
+                                Learn together through hands-on group activities that
+                                bring the science of colour to life.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- DAVID ATTENBOROUGH -->
+            <section class="special-event wrapper">
+                <div class="exhibition__label">
+                    <p class="section-label">
+                        SPECIAL GUEST
+                    </p>
+                </div>
+                <div class="special-event-info">
+                    <div class="special-event__content">
+                        <h4 class="special-event__title">don't miss it!</h4>
+                        <h3 class="special-event__name">MEET DAVID ATTENBOROUGH</h3>
+                        <p>David Attenborough will be making a guest appearance on a limited number of dates throughout
+                            the
+                            exhibition.</p>
+                    </div>
+                    <div class="event-details">
+                        <div class="special-event__details">
+                            <span class="special-event__detail">LIMITED DATES</span>
+                            <p class="special-event__detail-text">Selected dates only</p>
+                        </div>
+                        <div>
+                            <span class="special-event__detail">EXHIBITION</span>
+                            <p class="special-event__detail-text">4 WEEKS · 2018</p>
+                        </div>
+                        <a href="#" class="button hero__button menu-trigger"> Book Tickets
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M12 4L4 12M5.33333 4H12V10.6667" stroke="#FEFFEB" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer wrapper">
+            <div class="logo">
+                <a href="#top" class="site-nav__logo">
+                    Natural History Museum
+                </a>
+            </div>
+            <div class="up_button">
+                <a href="#top">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M7.9994 2.34315V13.6569M3.28535 7.05719L7.9994 2.34315L12.7134 7.05719"
+                            stroke="#002415" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+        </footer>
+    </div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
