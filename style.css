@@ -140,6 +140,11 @@ a:hover::after {
     text-transform: uppercase;
     font-family: "Neco";
     font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+.button:hover {
+    transform: scale(1.05);
 }
 
 /* HEADER */
